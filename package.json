@@ -1,19 +1,23 @@
 {
-  "name": "pineui",
-  "version": "1.0.0-test",
+  "name": "pineuix",
+  "version": "1.0.3-test",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": "./index.js",
+  "bin": {
+    "pineuix": "./bin.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chalk": "^5.2.0",
+    "chalk-animation": "^2.0.3",
     "figlet": "^1.6.0",
+    "gradient-string": "^2.0.2",
     "module-alias": "^2.2.3",
     "yargs": "^17.7.2"
   }
