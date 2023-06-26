@@ -2,7 +2,7 @@
 import chalk from 'chalk'
 import fs from 'fs'
 import { ReplaceStringInFile } from '../helpers/file.js'
-import { GetSrcPath, CreateDirectories } from '../helpers/path.js'
+import { GetSrcPath, CreateDirectories, GetUserCurrentPath } from '../helpers/path.js'
 import Message from '../helpers/message.js'
 
 const { PreparingMessage, ErrorMessage } = Message()
