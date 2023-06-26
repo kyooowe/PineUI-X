@@ -56,7 +56,7 @@ const PageModuleWorker = async (fileName) => {
         // Show success message
         console.log(chalk.greenBright(`Module path: src/modules/${fileName}.module.tsx`))
         console.log(chalk.greenBright(`Page path: src/pages/${fileName}.page.tsx`))
-        console.log(chalk.greenBright(`Success! Your page and module is now ready.`))
+        console.log(chalk.greenBright(`\nSuccess! Your page and module is now ready.`))
 
         // Replace the changes to importPath
         ReplaceStringInFile(snippetsPagePath, `@modules/${fileName}.module`, 'importPath') // Replace the importPath to module path

@@ -11,11 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@clack/prompts": "^0.6.3",
     "chalk": "^5.2.0",
     "chalk-animation": "^2.0.3",
     "figlet": "^1.6.0",
     "gradient-string": "^2.0.2",
     "module-alias": "^2.2.3",
+    "picocolors": "^1.0.0",
     "yargs": "^17.7.2"
   }
 }

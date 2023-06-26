@@ -1,12 +1,11 @@
 //#region Import
 import figlet from 'figlet'
-import chalk from 'chalk'
 import gradient from 'gradient-string'
+import { exec } from 'child_process'
+import color from 'picocolors';
+import * as p from '@clack/prompts';
 import { GetSrcPath } from '../helpers/path.js'
 import { CopyFolderRecursive } from '../helpers/copy.js'
-import Message from '../helpers/message.js'
-
-const { MiddleMessage, InfoMessage } = Message()
 //#endregion
 
 //#region Constant
@@ -19,32 +18,95 @@ const { MiddleMessage, InfoMessage } = Message()
  */
 export const RunTemplateFunc = async (template) => {
 
-    if(template === 'nextjs') {
-        console.log(chalk.blueBright(`\n\n Sorry, NextJS template still in progress. You can try our Vite template by simply adding --vite flag.`))
-        return
+    console.log('\n')
+    p.intro(`${color.white(`Create PineUI App - ${template === 'vite' ? 'Vite' : 'NextJS'}`)}`);
+
+    const option = await p.group(
+        {
+            name: () =>
+                p.text({
+                    message: 'Name of the project?',
+                    placeholder: 'Pine UI',
+                    validate: (value) => {
+                        if (!value) return 'Please enter valid name.'
+                    }
+                }),
+            install: () =>
+                p.confirm({
+                    message: 'Auto install dependencies? (This may take some time instead of doing it manually)',
+                    initialValue: false
+                })
+        },
+        {
+            onCancel: () => {
+                p.cancel('Operation cancelled.');
+                process.exit(0);
+            },
+        }
+    )
+
+    const absoluteUserPath = `${process.cwd()}/${option.name}`
+    const s = p.spinner()
+
+    // Cloning Application
+    s.start(`Creating a new PineUI app in ${absoluteUserPath}.`)
+
+    // Run Clone Functon
+    await CloneTemplate(template, absoluteUserPath)
+    await new Promise(resolve => setTimeout(resolve, 2000))
+
+    // Stop spinner
+    s.stop(`${color.green('PineUI App successfully created.')}`)
+
+    if (option.install) {
+
+        // Installing dependencies
+        s.start('Installing dependencies...')
+
+        // Run Install Dependencies Function
+        await InstallDependencies(absoluteUserPath)
+        await new Promise(resolve => setTimeout(resolve, 1000))
+
+        // Stop Spinner
+        s.stop(`${color.green(`Dependencies installed!`)}`)
     }
 
-    // Header Text
-    console.log(chalk.blueBright(`\n\nPreparing ${template === 'vite' ? 'Vite' : 'NextJS'} template for creation, standby and sip your coffee. 🍵`))
+    // Next Step
+    const nextStep = ` cd ${option.name} ${option.install ? '' : '\n npm i'} \n code .`
+    p.note(nextStep, 'Next steps.')
 
-    // Clone template
-    await CloneTemplate(template)
-    await MiddleMessage()
-
-    // Show success message
-    console.log(chalk.greenBright(`\nSuccess! To get started, open the terminal in the /pineui-${template} directory and execute the command "npm i."`))
-    console.log(chalk.greenBright(`Additionally, feel free to refer to the documentation available at https://github.com/kyooowe/pineui.`))
-    
-    figlet('Thank you for using\n Pine UI!', (err, data) => {
-        console.log(gradient.pastel.multiline(data))
-    })
+    // Outro
+    p.outro(`Thank you for using PineUI! Project created at ${absoluteUserPath}. `)
 }
 
-const CloneTemplate = async (template) => {
+const CloneTemplate = async (template, path) => {
 
     // Template folder path
-    const templatePath = `${GetSrcPath()}templates/vite/`
-    const userPath = `${process.cwd()}\\pineui-${template}\\`
+    const templatePath = `${GetSrcPath()}templates/${template}/`
 
-    await CopyFolderRecursive(templatePath, userPath)
+    await CopyFolderRecursive(templatePath, path)
 }
+
+const InstallDependencies = async (path) => {
+
+    try {
+        const command = 'npm i'
+        const options = {
+            cwd: path
+        }
+
+        await new Promise((resolve, reject) => {
+            exec(command, { ...options }, (error, stdout, stderr) => {
+                if (error || stderr) {
+                    reject(new Error('Failed to install dependencies.'))
+                }
+
+                resolve({ stdout, stderr })
+            });
+        })
+
+        return true
+    } catch (error) {
+        return false
+    }
+}   
