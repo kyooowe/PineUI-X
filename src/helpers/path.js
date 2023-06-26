@@ -13,7 +13,7 @@ const currentDirectory = dirname(currentFilePath);
  * @returns string
  */
 const GetSrcPath = () => {
-    return currentDirectory.replace('/helpers', '')
+    return currentDirectory.replace('\helpers', '')
 }
 
 /**

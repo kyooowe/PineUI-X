@@ -39,8 +39,7 @@ export const RunServiceFunc = async (framework, service, fileName) => {
 const PageModuleWorker = async (fileName, service) => {
 
     try {
-        // const userSrcPath = `${GetUserCurrentPath()}apps/dashboard/src/`
-        const userSrcPath = `C:/Users/johnm/OneDrive/Desktop/Code/open-source/PineUI/apps/dashboard/src/`
+        const userSrcPath = `${GetUserCurrentPath()}apps/dashboard/src/`
         const snippetsModulePath = `${GetSrcPath()}snippets/react/module/module.tsx`
         const snippetsPagePath = `${GetSrcPath()}snippets/react/page/page.tsx`
 
