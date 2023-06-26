@@ -1,6 +1,4 @@
 //#region Import
-import figlet from 'figlet'
-import gradient from 'gradient-string'
 import { exec } from 'child_process'
 import color from 'picocolors';
 import * as p from '@clack/prompts';
@@ -45,7 +43,7 @@ export const RunTemplateFunc = async (template) => {
         }
     )
 
-    const absoluteUserPath = `${process.cwd()}/${option.name}`
+    const absoluteUserPath = `${process.cwd()}\\${option.name}`
     const s = p.spinner()
 
     // Cloning Application
