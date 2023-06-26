@@ -24,11 +24,10 @@ export const RunServiceFunc = async (framework, service, fileName) => {
     if (framework === 'react') {
         switch (service) {
             case 'pmod':
-                await PageModuleWorker(fileName, service)
+                await PageModuleWorker(fileName)
                 break;
         }
     }
-
 }
 
 /**
@@ -36,10 +35,10 @@ export const RunServiceFunc = async (framework, service, fileName) => {
  * @param {string} fileName - Path/file name of the file where user want it to place
  * @param {string} service - Service type selected by the user
  */
-const PageModuleWorker = async (fileName, service) => {
+const PageModuleWorker = async (fileName) => {
 
     try {
-        const userSrcPath = `${GetUserCurrentPath()}apps/dashboard/src/`
+        const userSrcPath = `${GetUserCurrentPath()}/apps/dashboard/src/`
         const snippetsModulePath = `${GetSrcPath()}snippets/react/module/module.tsx`
         const snippetsPagePath = `${GetSrcPath()}snippets/react/page/page.tsx`
 
@@ -55,7 +54,9 @@ const PageModuleWorker = async (fileName, service) => {
         await fs.promises.copyFile(snippetsPagePath, `${userSrcPath}/pages/${fileName}.page.tsx`)
 
         // Show success message
-        console.log(chalk.greenBright(`Success! Your ${service} is now ready.`))
+        console.log(chalk.greenBright(`Module path: src/modules/${fileName}.module.tsx`))
+        console.log(chalk.greenBright(`Page path: src/pages/${fileName}.page.tsx`))
+        console.log(chalk.greenBright(`Success! Your page and module is now ready.`))
 
         // Replace the changes to importPath
         ReplaceStringInFile(snippetsPagePath, `@modules/${fileName}.module`, 'importPath') // Replace the importPath to module path
