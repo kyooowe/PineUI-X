@@ -1,12 +1,20 @@
+//#region Import
 import fs from 'fs'
 import path from 'path'
 import { promisify } from 'util'
+//#endregion
 
 const mkdir = promisify(fs.mkdir);
 const readdir = promisify(fs.readdir);
 const lstat = promisify(fs.lstat);
 const copyFile = promisify(fs.copyFile);
 
+/**
+ * @description - Copy all the folder and file of the template in user folder
+ * @param {string} source - source path  
+ * @param {string} destination - destination path
+ * @returns 
+ */
 export const CopyFolderRecursive = async (source, destination) => {
     try {
         // Create destination folder if it doesn't exist

@@ -27,9 +27,11 @@ export const RunTemplateFunc = async (template) => {
     // Header Text
     console.log(chalk.blueBright(`\n\nPreparing ${template === 'vite' ? 'Vite' : 'NextJS'} template for creation, standby and sip your coffee. 🍵`))
 
+    // Clone template
     await CloneTemplate(template)
     await MiddleMessage()
 
+    // Show success message
     console.log(chalk.greenBright(`\nSuccess! To get started, open the terminal in the /pineui-${template} directory and execute the command "npm i."`))
     console.log(chalk.greenBright(`Additionally, feel free to refer to the documentation available at https://github.com/kyooowe/pineui.`))
     

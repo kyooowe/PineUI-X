@@ -31,26 +31,19 @@ const Start = async () => {
         })
 
         // Service Option
-        .option('service', {
-            description: 'Generate a service.',
-            type: 'string',
-            when: ['react', 'express']
+        .command('*', '', (yargs) => {
+            yargs.parserConfiguration({ 'parse-positional-numbers': false });
         })
         .parseAsync()
 
     //#region Catching Errors
-    if(argv.vite && argv.nextjs) {
+    if (argv.vite && argv.nextjs) {
         console.log(chalk.red(`\n\nOops! It seems you've selected multiple templates, you must specify either --vite or --nextjs.`))
         return false;
     }
 
     if (argv.react && argv.express) {
         console.log(chalk.red(`\n\nOops! It seems you've selected multiple frameworks, you must specify either --template-react or --template-express.`))
-        return false;
-    }
-
-    if ((argv.react || argv.express) && !argv.service) {
-        console.log(chalk.red('\n\nOops! No service selected, please choose a service to generate.'))
         return false;
     }
     //#endregion
@@ -60,12 +53,14 @@ const Start = async () => {
     const nextjsEnabled = argv.nextjs
     const serviceReact = argv.react
     const serviceExpress = argv.express
+    const serviceType = argv._[0]
+    const fileName = argv._[1]
 
     if (viteEnabled || nextjsEnabled)
         await RunTemplateFunc(viteEnabled ? 'vite' : 'nextjs')
 
     if (serviceReact || serviceExpress)
-        await RunServiceFunc(argv.service, serviceReact ? 'react' : 'express')
+        await RunServiceFunc(serviceReact ? 'react' : 'express', serviceType, fileName)
 
     //#endregion
 }
