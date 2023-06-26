@@ -19,6 +19,11 @@ const { MiddleMessage, InfoMessage } = Message()
  */
 export const RunTemplateFunc = async (template) => {
 
+    if(template === 'nextjs') {
+        console.log(chalk.blueBright(`\n\n Sorry, NextJS template still in progress. You can try our Vite template by simply adding --vite flag.`))
+        return
+    }
+
     // Header Text
     console.log(chalk.blueBright(`\n\nPreparing ${template === 'vite' ? 'Vite' : 'NextJS'} template for creation, standby and sip your coffee. 🍵`))
 
