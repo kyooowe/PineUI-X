@@ -60,5 +60,8 @@ By harnessing the capabilities of Pine UI X, you will experience a substantial a
   Although optional, Pine UI X serves as a valuable tool within the Pine UI ecosystem, allowing developers to expedite development processes by automating tasks. However, it's important to note that you can still utilize Pine UI effectively even without employing Pine UI X
 </details>
 
+# License
+The code in this repository is released under the MIT license as found in the [License file](https://github.com/kyooowe/PineUI-CLI/blob/master/LICENSE).
+
 # Author
 -   [@kyooowe](https://www.github.com/kyooowe)
