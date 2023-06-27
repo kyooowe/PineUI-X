@@ -49,7 +49,7 @@ This is the command you can utilize to leverage the capabilities of Pine UI X.
 
 # Frequently Asked Questions (FAQs)
 <details>
-  <summary>Why Pine UI X?</summary>
+  <summary>Should I use Pine UI X from Pine UI?</summary>
   
 By harnessing the capabilities of Pine UI X, you will experience a substantial acceleration in your work within the Pine UI environment, enabling you to accomplish tasks with exceptional speed and efficiency.
 </details>
