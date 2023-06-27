@@ -17,14 +17,17 @@ const { PreparingMessage, ErrorMessage } = Message()
  */
 export const RunServiceFunc = async (framework, service, fileName) => {
 
-    // Show message
-    await PreparingMessage(service)
-
-    // Header Text
     if (framework === 'react') {
         switch (service) {
             case 'pmod':
+
+                // Show message
+                await PreparingMessage(service)
                 await PageModuleWorker(fileName)
+
+                break;
+            case 'crud':
+                console.log(chalk.red('\nCRUD service is still in progress. '))
                 break;
         }
     }
@@ -65,3 +68,4 @@ const PageModuleWorker = async (fileName) => {
         ErrorMessage(`\n\n${error}`)
     }
 }
+

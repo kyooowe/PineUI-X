@@ -16,6 +16,11 @@ import { CopyFolderRecursive } from '../helpers/copy.js'
  */
 export const RunTemplateFunc = async (template) => {
 
+    if(template === 'nextjs') {
+        console.log(color.red(`\nNextJS Template is still in progress. You may try our vite template, but simply using the --vite flag.`))
+        return
+    }
+
     console.log('\n')
     p.intro(`${color.white(`Create PineUI App - ${template === 'vite' ? 'Vite' : 'NextJS'}`)}`);
 
