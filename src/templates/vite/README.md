@@ -14,7 +14,7 @@ A **comprehensive** and **user-friendly boilerplate**, designed to expedite the 
 
 # Getting Started
 ```
-npx pineui --vite
+npx pineuix --vite
 ```
 or just clone the project by running
 ```
@@ -25,21 +25,21 @@ That will scaffold a new folder with the latest version of 🚀 **Pine UI**
 
 # Installation
 Create a `.env` file in the project directory (apps/api and apps/dashoard) with your environment variables. You can copy the contents of the `.env.example` file and replace the values  with your own. <br /> <br />
-Install dependencies by running the command in terminal (root folder)
+Install dependencies by running the command in the terminal (root folder)
 ```
 npm install
 ```
 
-Run the following command in root directory to start the application
+Run the following command in the root directory to start the application
 ```
 npm run dev
 ```
 
-Access the application in your dashboard at `http://127.0.0.1:5173/` and api `http://localhost:3001`
+Access the application in your dashboard at `http://127.0.0.1:5173/` and API `http://localhost:3001`
 
-## Build
+# Build
 
-To build a production-ready version of your application, run the command in terminal (root folder):
+To build a production-ready version of your application, run the command in the terminal (root folder):
 
 ```
 npm run build
@@ -52,19 +52,17 @@ Experience the impressive features and functionality you'll have at your fingert
 # Framework / Libraries
 This project uses the following frameworks and libraries:
 
- - [🚀 Turborepo](https://turbo.build/repo)
- - [⚛️ React](https://react.dev/)
- - [🌐 Express JS](https://expressjs.com/)
- - [🔍 React Query](https://tanstack.com/query/v4/docs/react/adapters/react-query)
- - [🎨 Tailwind CSS](https://tailwindcss.com/)
- - [✨ React Particles](https://github.com/matteobruni/tsparticles)
- - [📚 Typescript](https://www.typescriptlang.org/)
- - [🐻 Zustand](https://github.com/pmndrs/zustand)
- - [📝 Formik](https://formik.org/)
- - [🎭 Framer Motion](https://www.framer.com/motion/)
- - [🐆 Mongoose](https://mongoosejs.com/)
- - [🔒 CryptoJS](https://cryptojs.gitbook.io/docs/)
- - [📧 NodeMailer](https://nodemailer.com/about/)
+ - [🚀 Turborepo](https://turbo.build/repo) - A build tool for a mono repo that is optimized for JavaScript and TypeScript codebases1
+ - [⚛️ React](https://react.dev/) - a free and open-source front-end JavaScript library for building user interfaces based on UI components.
+ - [🌐 Express JS](https://expressjs.com/) - A popular web application framework for Node.js, a JavaScript runtime environment that allows server-side JavaScript execution.
+ - [🔍 React Query](https://tanstack.com/query/v4/docs/react/adapters/react-query) - A JavaScript library for managing and synchronizing server state in React applications.
+ - [🎨 Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework that provides a set of pre-designed utility classes to quickly build user interfaces.
+ - [✨ React Particles](https://github.com/matteobruni/tsparticles) - Easily create highly customizable JavaScript particle effects, confetti explosions, and fireworks animations and use them as animated backgrounds for your website.
+ - [📚 Typescript](https://www.typescriptlang.org/) - A strongly-typed superset of JavaScript that adds static typing and other features to the language.
+ - [🐻 Zustand](https://github.com/pmndrs/zustand) - A state management library for React applications.
+ - [📝 Formik](https://formik.org/) - A popular form library for React applications. It simplifies the process of building and managing complex forms by providing an intuitive API and a set of useful features.
+ - [🎭 Framer Motion](https://www.framer.com/motion/) - A popular animation library for React applications. It provides a simple and intuitive API for creating smooth and interactive animations and gestures.
+ - [🐆 Mongoose](https://mongoosejs.com/) - An Object-Data Mapping (ODM) library for Node.js and MongoDB.
 
 # Features
 This innovative project showcases a comprehensive range of powerful and cutting-edge features, seamlessly integrating the following capabilities:
@@ -73,7 +71,7 @@ This innovative project showcases a comprehensive range of powerful and cutting-
  - Authentication w/ Forgot Password Recovery
  - Student Management (CRUD)
  - Custom Components based on TailwindCSS
- - Developer experience improved with ESLint, Prettier and Husky
+ - Developer experience improved with ESLint, Prettier, and Husky
 
 # Frequently Asked Questions (FAQs)
 <details>
@@ -91,14 +89,21 @@ This innovative project showcases a comprehensive range of powerful and cutting-
 ## Roadmap
 An overview of our development plans and upcoming features.
 
- - [X] Component libraries (Will add more components)
+ - [X] Component libraries (Will add more components and variants)
+   - [X] Alert
+   - [X] Avatar
+   - [X] Badge
+   - [X] Buttons
+   - [X] Cards
+   - [X] Select
+   - [X] Text Input   
  - [X] Landing Page
  - [ ] NextJS Version
- - [ ] CLI (Create dashboard, services, CRUD pages)
- - [ ] Auth with Google, Github, Twitter and Facebook
+ - [ ] CLI (Create a dashboard, services, and CRUD pages)
+ - [ ] Auth with Google, Github, Twitter, and Facebook
 
 # License
 The code in this repository is released under the MIT license as found in the [License file](https://github.com/kyooowe/PineUI/blob/master/LICENSE).
 
-## Author
+# Author
 -   [@kyooowe](https://www.github.com/kyooowe)

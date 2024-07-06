@@ -74,6 +74,9 @@ export const RunTemplateFunc = async (template) => {
         s.stop(`${color.green(`Dependencies installed!`)}`)
     }
 
+    const nextStepGuide = ` Guide for Pine UI here https://github.com/kyooowe/PineUI, \n just follow the installation and you're good to go.`
+    p.note(nextStepGuide, 'Guide.')
+
     // Next Step
     const nextStep = ` cd ${option.name} ${option.install ? '' : '\n npm i'} \n code .`
     p.note(nextStep, 'Next steps.')

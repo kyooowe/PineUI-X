@@ -17,6 +17,10 @@ const { PreparingMessage, ErrorMessage } = Message()
  */
 export const RunServiceFunc = async (framework, service, fileName) => {
 
+    console.log(framework)
+    console.log(service)
+    console.log(fileName)
+
     if (framework === 'react') {
         switch (service) {
             case 'pmod':
@@ -45,6 +49,8 @@ const PageModuleWorker = async (fileName) => {
         const snippetsModulePath = `${GetSrcPath()}snippets/react/module/module.tsx`
         const snippetsPagePath = `${GetSrcPath()}snippets/react/page/page.tsx`
 
+        console.log(userSrcPath)
+
         // Create recursive directories based on user input  
         await CreateDirectories(fileName, `${userSrcPath}modules/`) // Module
         await CreateDirectories(fileName, `${userSrcPath}pages/`) // Pages
@@ -53,7 +59,7 @@ const PageModuleWorker = async (fileName) => {
         await fs.promises.copyFile(snippetsModulePath, `${userSrcPath}/modules/${fileName}.module.tsx`)
 
         // Copy the page file to page folder of user
-        await ReplaceStringInFile(snippetsPagePath, 'importPath', `@modules/${fileName}.module`) // Replace the importPath to module path
+        await ReplaceStringInFile(snippetsPagePath, 'importPath', `test`) // Replace the importPath to module path
         await fs.promises.copyFile(snippetsPagePath, `${userSrcPath}/pages/${fileName}.page.tsx`)
 
         // Show success message
@@ -62,7 +68,7 @@ const PageModuleWorker = async (fileName) => {
         console.log(chalk.greenBright(`\nSuccess! Your page and module is now ready.`))
 
         // Replace the changes to importPath
-        ReplaceStringInFile(snippetsPagePath, `@modules/${fileName}.module`, 'importPath') // Replace the importPath to module path
+        ReplaceStringInFile(snippetsPagePath, `test`, 'importPath') // Replace the importPath to module path
 
     } catch (error) {
         ErrorMessage(`\n\n${error}`)

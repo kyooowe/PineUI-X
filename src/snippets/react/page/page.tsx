@@ -2,7 +2,7 @@
 import { Suspense, lazy } from "react"
 import CenterLoader from "@/components/loader/center-loader.component"
 
-const Main = lazy(() => import('importPath'))
+const Main = lazy(() => import('@modules/data/item.module'))
 //#endregion
 
 const StarterPage = () => {

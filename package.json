@@ -1,11 +1,11 @@
 {
   "name": "pineuix",
-  "version": "1.0.11-test",
+  "version": "1.0.15-test",
   "description": "",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "pineuix": "./bin.js"
+    "pineuix": "./index.js"
   },
   "keywords": [],
   "author": "",
